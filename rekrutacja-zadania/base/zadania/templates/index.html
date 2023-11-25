@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "css/stylexx.css" %}>
+    <title>Zadania</title>
+</head>
+<body>
+
+    <div class='navbar'>
+        <ul>
+            <li><a style='color:white' href={% url "home" %}>Menu</a></li>
+        </ul>
+    </div>
+
+{% block content %}
+    <h1>Wybierz zadanie:</h1>
+
+    <form action={% url "task1" %}>
+        <input type="submit" class='button' value="Zadanie 1" />
+    </form>
+
+    <form action={% url "task2" %}>
+        <input type="submit" class='button' value="Zadanie 2" />
+    </form>
+{% endblock content %}
+</body>
+</html>

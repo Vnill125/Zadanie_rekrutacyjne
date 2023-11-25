@@ -1,0 +1,19 @@
+{% extends "index.html" %} {% block content %} {% if page == 'pesel' %}
+
+<h1>Wprowadź numer PESEL:</h1>
+<form method="post" action="{% url 'task2' %}">
+  {% csrf_token %}
+  {{ form }}
+  <button class='button2' type="submit">Sprawdź PESEL</button>
+</form>
+
+{% else %}
+
+<h1>Wynik weryfikacji PESEL:</h1>
+{% if birth_date and gender %}
+<p class='text' style='color:green'>Numer PESEL {{ pesel_number }} jest poprawny.</p>
+<p class='text'>Data urodzenia: {{ birth_date }}</p>
+<p class='text'>Płeć: {{ gender }}</p>
+{% else %}
+<p class='text'>Numer PESEL {{ pesel_number }} jest nieprawidłowy.</p>
+{% endif %} {% endif %} {% endblock content %}
